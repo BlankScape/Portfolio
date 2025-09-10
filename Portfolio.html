@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nikhil Kumar | Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #fff;
+      background: linear-gradient(135deg, #1c2541 0%, #3a506b 50%, #5bc0be 100%);
+      overflow-x: hidden;
+    }
+
+    /* Glassy card style */
+    section, header, footer {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 3rem 2rem;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(60px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(10px);
+    }
+    .show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Header */
+    header {
+      min-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    header img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #fff;
+      margin-bottom: 1rem;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      margin: 0.5rem 0;
+    }
+    header p {
+      font-size: 1.2rem;
+      color: #e0f7fa;
+    }
+    nav {
+      margin-top: 1rem;
+    }
+    nav a {
+      color: #fff;
+      margin: 0 12px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #ffd700;
+    }
+
+    /* About Section */
+    #about .about-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+      max-width: 900px;
+      margin: auto;
+      text-align: left;
+    }
+    #about img {
+      width: 250px;
+      border-radius: 15px;
+      object-fit: cover;
+      border: 3px solid #fff;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+    }
+    #about .about-content {
+      flex: 1;
+    }
+    #about p {
+      line-height: 1.6;
+    }
+    @media (min-width: 768px) {
+      #about .about-container {
+        flex-direction: row;
+        align-items: flex-start;
+      }
+      #about img {
+        margin-right: 20px;
+      }
+    }
+
+    /* Tools Box */
+.tools-box {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  border-radius: 15px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  text-align: center;
+}
+
+.tools-box h3 {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  color: #fffae3;
+}
+
+.tools-icons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.tool {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tool i {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  transition: transform 0.3s, color 0.3s;
+}
+
+.tool i:hover {
+  transform: scale(1.2);
+  color: #ffd700;
+}
+
+.tool p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #fff;
+}
+
+
+    /* Resume Button */
+    .resume-btn {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.8rem 1.5rem;
+      border-radius: 25px;
+      background: linear-gradient(135deg, #ffd700, #ff9800);
+      color: #222;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .resume-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+    }
+    .resume-btn i {
+      margin-right: 8px;
+    }
+
+    /* Section Headings */
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #fffae3;
+    }
+
+    /* Skills Section */
+    ul {
+      list-style: none;
+      padding: 0;
+      max-width: 700px;
+      margin: auto;
+    }
+    ul li {
+      margin-bottom: 0.7rem;
+      font-size: 1.1rem;
+    }
+
+    /* Icons in header */
+    .icons {
+      margin-top: 1rem;
+    }
+    .icons a {
+      color: #fff;
+      font-size: 1.4rem;
+      margin: 0 8px;
+      transition: transform 0.3s, color 0.3s;
+    }
+    .icons a:hover {
+      transform: scale(1.2);
+      color: #ffd700;
+    }
+
+    /* Footer */
+    footer {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      padding: 1rem;
+      font-size: 0.9rem;
+      border-radius: 20px;
+      margin-bottom: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header / Hero -->
+  <header>
+    <img src="Screenshot 2025-09-10 223359.png" alt="Nikhil Kumar">
+    <h1>Nikhil Kumar</h1>
+    <p>Software Engineer | Web & Game Developer</p>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="icons">
+      <a href="https://github.com/BlankScape" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/nikhil-kumar-a750b4288" target="_blank"><i class="fab fa-linkedin"></i></a>
+    </div>
+  </header>
+
+  <!-- About Section -->
+  <section id="about">
+    <h2>About Me</h2>
+    <div class="about-container">
+      <img src="WhatsApp Image 2025-09-10 at 21.59.08_5877f4fb.jpg" alt="Nikhil Kumar">
+      <div class="about-content">
+        <p>
+          I’m <strong>Nikhil Kumar</strong>, a 3rd-year Computer Science student at VIT Vellore with a strong foundation 
+          in programming and a growing passion for <b>web development</b> and <b>game development</b>. 
+          I enjoy solving problems through code, building interactive web applications, and experimenting 
+          with game mechanics in Unity. I’m eager to apply my skills to real-world projects while continuously 
+          learning and growing as a software engineer.
+        </p>
+
+        <!-- Tools Box -->
+<div class="tools-box">
+  <h3>Tools & Technologies</h3>
+  <div class="tools-icons">
+    <div class="tool">
+      <i class="fab fa-github"></i>
+      <p>GitHub</p>
+    </div>
+    <div class="tool">
+      <i class="fas fa-code"></i>
+      <p>VS Code</p>
+    </div>
+    <div class="tool">
+      <i class="fas fa-gamepad"></i>
+      <p>Unity</p>
+    </div>
+    <div class="tool">
+      <i class="fas fa-terminal"></i>
+      <p>Git</p>
+    </div>
+  </div>
+</div>
+
+
+        <!-- Resume Button -->
+        <a href="https://drive.google.com/file/d/1Sc3KmBANpfg7DguHO0q1xnutGtNF9Ixu/view?usp=sharing" class="resume-btn">
+          <i class="fas fa-download"></i> Open Resume
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <ul>
+      <li><b>Programming Languages:</b> C, C++, Java (Basic), Python, C#</li>
+      <li><b>Web Development:</b> HTML, CSS, JavaScript, React (Learning)</li>
+      <li><b>Game Development:</b> Unity (C#)</li>
+      <li><b>Tools & Platforms:</b> Git, GitHub, Visual Studio Code</li>
+      <li><b>Soft Skills:</b> Problem-Solving, Communication, Teamwork, Time Management</li>
+    </ul>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <ul>
+      <li>
+        <b>Personal Portfolio Website (Ongoing):</b> Responsive personal portfolio website to showcase skills and projects. 
+        <br><i>Tech Stack: HTML, CSS, JavaScript, React (Learning)</i>
+      </li>
+      <li>
+        <b>Castlevania-Style 2D Game (Ongoing):</b> A side-scrolling platformer inspired by Castlevania. 
+        <br><i>Tech Stack: Unity, C#</i>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>📧 Email: <a href="mailto:nikhilkumarhr12@gmail.com">nikhilkumarhr12@gmail.com</a></p>
+    <p>📞 Phone: 8750207669</p>
+    <p>🔗 LinkedIn: <a href="https://www.linkedin.com/in/nikhil-kumar-a750b4288" target="_blank">linkedin.com/in/nikhil-kumar-a750b4288</a></p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Nikhil Kumar | Portfolio</p>
+  </footer>
+
+  <script>
+    // Intersection Observer for animations
+    const sections = document.querySelectorAll("section, header, footer");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
+    }, { threshold: 0.2 });
+
+    sections.forEach(section => observer.observe(section));
+  </script>
+</body>
+</html>
